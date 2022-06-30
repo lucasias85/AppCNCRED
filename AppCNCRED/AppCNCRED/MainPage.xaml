@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCNCRED.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackLayout BackgroundColor="#D88228" Padding="20" Spacing="10">
+            <Label Text="SIMULADOR CN CRED"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center"/>
+            <Label Text="Informe o valor desejado:"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="White"/>
+            <Entry x:Name="textBoxValor"
+                   Placeholder="Digite o valor desejado em R$"
+                   Keyboard="Numeric"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   BackgroundColor="White"
+                   HorizontalTextAlignment="Center"/>
+            <Button x:Name="buttonCalcular"
+                    Text="         Calcular !         "
+                    CornerRadius="20"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    BackgroundColor="#6D6E71"
+                    HorizontalOptions="Center"
+                    Padding="10"/>
+        </StackLayout>
+        
+        <ScrollView Grid.Row="1" Orientation="Vertical">
+            <StackLayout>
+            
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
