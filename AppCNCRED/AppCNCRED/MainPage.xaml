@@ -35,12 +35,13 @@
                     TextColor="White"
                     BackgroundColor="#6D6E71"
                     HorizontalOptions="Center"
-                    Padding="10"/>
+                    Padding="10"
+                    Clicked="buttonCalcular_Clicked"/>
         </StackLayout>
         
         <ScrollView Grid.Row="1" Orientation="Vertical">
             <StackLayout>
-            
+                <ListView x:Name="myList"/>
             </StackLayout>
         </ScrollView>
     </Grid>
