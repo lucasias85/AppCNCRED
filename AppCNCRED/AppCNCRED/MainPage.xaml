@@ -41,7 +41,9 @@
         
         <ScrollView Grid.Row="1" Orientation="Vertical">
             <StackLayout>
-                <ListView x:Name="myList"/>
+                <ListView x:Name="myList" SeparatorColor="Black">
+                    
+                </ListView>
             </StackLayout>
         </ScrollView>
     </Grid>
