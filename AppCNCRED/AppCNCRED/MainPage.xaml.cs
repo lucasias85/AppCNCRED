@@ -23,13 +23,13 @@ namespace AppCNCRED
         {
             dto.ValorEmprestimo = Convert.ToDecimal(textBoxValor.Text);
 
-            for(int i = 0; i < 12; i++)
+            for (int i = 0; i < 12; i++)
             {
                 dto.NParcela = i + 1;
                 dto.ValorTaxa = dal.PegarTaxa(i);
-                dto.ValorEmprestimo = dto.ValorEmprestimo * dto.ValorTaxa;
-                dto.ValorParcela = dto.ValorEmprestimo / dto.NParcela;
-                item.Add(dto);
+                dto.ValorTotal = (dto.ValorEmprestimo * dto.ValorTaxa) + dto.ValorEmprestimo ;
+                dto.ValorParcela = dto.ValorTotal / dto.NParcela;
+                item.Add(new ParcelamentoDTO { ValorEmprestimo = dto.ValorEmprestimo, NParcela = dto.NParcela, ValorTaxa = dto.ValorTaxa, ValorParcela = dto.ValorParcela, ValorTotal = dto.ValorTotal });
             }
             myList.ItemsSource = item;
         }

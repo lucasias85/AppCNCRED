@@ -6,7 +6,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
         <StackLayout BackgroundColor="#D88228" Padding="20" Spacing="10">
@@ -41,8 +41,14 @@
         
         <ScrollView Grid.Row="1" Orientation="Vertical">
             <StackLayout>
-                <ListView x:Name="myList" SeparatorColor="Black">
-                    
+                <ListView x:Name="myList">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding ValorTotal, StringFormat='Total a pagar: R$ {0}'}"
+                                      Detail="{Binding ValorParcela, StringFormat='Parcelas de: R$ {0}'}"
+                                      TextColor="Black"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
         </ScrollView>
