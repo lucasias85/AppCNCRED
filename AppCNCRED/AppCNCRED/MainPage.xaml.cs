@@ -2,6 +2,7 @@
 using AppCNCRED.DTO;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +13,7 @@ namespace AppCNCRED
     {
         ParcelamentoDTO dto = new ParcelamentoDTO();
         TaxaInfoDAL dal = new TaxaInfoDAL();
-        List<ParcelamentoDTO> item = new List<ParcelamentoDTO>();
+        ObservableCollection<ParcelamentoDTO> item = new ObservableCollection<ParcelamentoDTO>();
 
         public MainPage()
         {
@@ -21,6 +22,8 @@ namespace AppCNCRED
 
         private void buttonCalcular_Clicked(object sender, EventArgs e)
         {
+            item.Clear();
+
             dto.ValorEmprestimo = Convert.ToDecimal(textBoxValor.Text);
 
             for (int i = 0; i < 12; i++)

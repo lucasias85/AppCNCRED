@@ -6,9 +6,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <StackLayout BackgroundColor="#D88228" Padding="20" Spacing="10">
             <Label Text="SIMULADOR CN CRED"
                    FontSize="24"
@@ -38,19 +38,28 @@
                     Padding="10"
                     Clicked="buttonCalcular_Clicked"/>
         </StackLayout>
-        
-        <ScrollView Grid.Row="1" Orientation="Vertical">
-            <StackLayout>
-                <ListView x:Name="myList">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextCell Text="{Binding ValorTotal, StringFormat='Total a pagar: R$ {0}'}"
-                                      Detail="{Binding ValorParcela, StringFormat='Parcelas de: R$ {0}'}"
-                                      TextColor="Black"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-        </ScrollView>
+
+        <ListView x:Name="myList" Grid.Row="1" Footer="" RowHeight="75">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                <Label Text="{Binding NParcela, StringFormat='Em {0}x de:'}"
+                                   FontSize="14"
+                                   TextColor="Black"/>
+                                <Label Text="{Binding ValorParcela, StringFormat='R$ {0:N}'}"
+                                   FontSize="14"
+                                   TextColor="Red"/>
+                            </StackLayout>
+                            <Label Text="{Binding ValorTotal, StringFormat='Total a cobrar: R$ {0:N}'}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"/>
+                         </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </ContentPage>
