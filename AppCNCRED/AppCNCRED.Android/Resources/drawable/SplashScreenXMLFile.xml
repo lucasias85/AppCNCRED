@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
   <item>
     <color android:color="@color/splashScreenBackground"/>
   </item>
@@ -8,5 +10,11 @@
         android:src="@drawable/logovertical"
         android:tileMode="disabled"
         android:gravity="center"/>
+  </item>
+  <item>
+    <bitmap
+        android:src="@drawable/rodape"
+        android:tileMode="disabled"
+        android:gravity="bottom"/>
   </item>
 </layer-list>

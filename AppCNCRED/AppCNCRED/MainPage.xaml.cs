@@ -1,7 +1,6 @@
 ﻿using AppCNCRED.DAL;
 using AppCNCRED.DTO;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -35,6 +34,12 @@ namespace AppCNCRED
                 item.Add(new ParcelamentoDTO { ValorEmprestimo = dto.ValorEmprestimo, NParcela = dto.NParcela, ValorTaxa = dto.ValorTaxa, ValorParcela = dto.ValorParcela, ValorTotal = dto.ValorTotal });
             }
             myList.ItemsSource = item;
+        }
+
+        private void MyList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var parcela = e.Item as ParcelamentoDTO;
+            DisplayAlert("Mais Informações...", $"Número de Parcela: {parcela.NParcela} \n Valor da Parcela: R$ {parcela.ValorParcela:N} \n Taxa Total de: {(parcela.ValorTaxa) * 100}% \n Total a cobrar: R$ {parcela.ValorTotal:N}", "OK");
         }
     }
 }
