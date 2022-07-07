@@ -22,6 +22,7 @@
             <Entry x:Name="textBoxValor"
                    Placeholder="Digite o valor desejado em R$"
                    Keyboard="Numeric"
+                   ClearButtonVisibility="WhileEditing"
                    FontSize="16"
                    FontAttributes="Bold"
                    TextColor="Black"
@@ -39,21 +40,23 @@
                     Clicked="buttonCalcular_Clicked"/>
         </StackLayout>
 
-        <ListView x:Name="myList" Grid.Row="1" Footer="" RowHeight="75" ItemTapped="MyList_ItemTapped">
+        <ListView x:Name="myList" Grid.Row="1" Footer="" RowHeight="75" SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="5">
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding NParcela, StringFormat = 'Parcelado em {0}x de: '}"
-                                           FontSize="14"
-                                           Padding="10,0"/>
+                                           FontSize="14"/>
                                     <Label Text="{Binding ValorParcela, StringFormat = 'R$ {0:N}'}"
                                            FontSize="14"
                                            TextColor="Red"
-                                           FontAttributes="Bold"
-                                           Padding="-15,0,0,0"/>
+                                           FontAttributes="Bold"/>
+                                    <Label Text="{Binding ValorTaxa, StringFormat = 'Tx. Efetiva Final: {0:N}%'}"
+                                           FontSize="14"
+                                           FontAttributes="Italic"
+                                           HorizontalOptions="EndAndExpand"/>
                                 </StackLayout>
                                 <Label Text="{Binding ValorTotal, StringFormat = 'Total a cobrar: R$ {0:N}'}"
                                        FontSize="22"
